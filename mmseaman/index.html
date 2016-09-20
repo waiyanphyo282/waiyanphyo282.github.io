@@ -131,7 +131,7 @@
 
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <!-- <b>Version</b> 2.3.0 -->
         </div>
         <strong>Copyright &copy; 2016 <a href="#">Myanmar Seaman</a>.</strong> All rights reserved.
       </footer>
@@ -141,10 +141,40 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
 
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase-database.js"></script>
+
+    <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAPB-Yw3jIlogeNtrlXd9jhwVg9COkI4LI",
+      authDomain: "myanmar-seaman.firebaseapp.com",
+      databaseURL: "https://myanmar-seaman.firebaseio.com",
+      storageBucket: "myanmar-seaman.appspot.com",
+      messagingSenderId: "781123170710"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+    </script>
     <script src="../js/jquery.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="../js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../js/app.min.js"></script>
+    <script>
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        console.log("signed in");
+        // User is signed in.
+      } else {
+        console.log("no user is signed in");
+        window.location="http://waiyanphyo282.github.io/mmseaman/login";
+        // No user is signed in.
+      }
+    });
+    </script>
   </body>
 </html>
