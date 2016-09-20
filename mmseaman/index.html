@@ -65,7 +65,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat signout">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -165,6 +165,16 @@
     <!-- AdminLTE App -->
     <script src="../js/app.min.js"></script>
     <script>
+    $('.signout').on('click', function(event) {
+      event.preventDefault();
+      firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location("http://waiyanphyo282.github.io/mmseaman/login");
+      }, function(error) {
+        console.log("error occured");
+      // An error happened.
+      });
+    })
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("signed in");
