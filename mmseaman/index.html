@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../css/skins/skin-blue-light.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -62,7 +62,14 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
+<<<<<<< HEAD
                       <a href="#" class="btn btn-default btn-flat">Sign out</a>
+=======
+                    </div>
+                    <div class="pull-right">
+                      <a href="#" class="btn btn-default btn-flat signout">Sign out</a>
+                    </div>
+>>>>>>> fd9117b18a1650735ab1d7e99611a848fb095cfd
                   </li>
                 </ul>
               </li>
@@ -161,6 +168,16 @@
     <!-- AdminLTE App -->
     <script src="../js/app.min.js"></script>
     <script>
+    $('.signout').on('click', function(event) {
+      event.preventDefault();
+      firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+      window.location("http://waiyanphyo282.github.io/mmseaman/login");
+      }, function(error) {
+        console.log("error occured");
+      // An error happened.
+      });
+    })
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("signed in");

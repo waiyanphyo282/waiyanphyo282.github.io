@@ -101,6 +101,7 @@ $(function () {
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         console.log("signed in");
+        window.location("http://waiyanphyo282.github.io/mmseaman/");
         // User is signed in.
       } else {
         console.log("no user is signed in");
