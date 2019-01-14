@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wunzinn Sharing Debugger</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+</head>
+<body>
+    <button class="btn btn-primary" id="fbSharingDebugger">Start</button>
+    <script>
+        $(document).ready(function(){
+            
+            $("#fbSharingDebugger").on("click",function(){
+                var bookid;
+                do {
+                    bookid=prompt("Please enter Book Id");
+                }
+                while(bookid.length < 4);
+                var debugUrl = "http://www.wunzinn.com/wzbook?name=teseting&&id="+bookid+"&&type=sellbook";
+                alert(debugUrl);
+                $.ajax({
+                    url: 'https://graph.facebook.com',
+                    type: 'POST',
+                    dataType: 'text',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: '{"scrape":true,"access_token":"1873526152942158|hdG7x4DTjwNirKt1BEf21d2LEns","id":'+debugUrl+'}',
+                    success: function (data) {
+                        alert(JSON.stringify(data));
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
