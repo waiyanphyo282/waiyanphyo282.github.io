@@ -19,17 +19,19 @@
     <title>Testing</title>
 </head>
 <body>
+    <p id="useragent"></p>
     <script type="text/javascript">
 		window.onload = function() {
 			// var desktopFallback = "http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
 			mobileFallback = "wzcomics://sharelink?target_url=http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
 			app = "com.bit.yotepya";
-            alert("userAgent:"+i.test(navigator.userAgent));
-			if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-				window.location = app;
-				window.setTimeout(function() {
-					window.location = mobileFallback;
-				}, 25);
+            alert("userAgent:"+/Android/i.test(navigator.userAgent));
+            document.getElementById("useragent").innerHTML = /Android/i.test(navigator.userAgent);
+			if( /Android/i.test(navigator.userAgent) ) {
+				window.location.href = mobileFallback;
+				// window.setTimeout(function() {
+				// 	window.location = mobileFallback;
+				// }, 25);
 			} else {
 				// window.location = desktopFallback;
 			}
