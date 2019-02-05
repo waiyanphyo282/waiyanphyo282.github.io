@@ -27,9 +27,9 @@
 			app = "wzcomics://sharelink";
             document.getElementById("useragent").innerHTML = /Android/i.test(navigator.userAgent);
 			if( /Android/i.test(navigator.userAgent) ) {
-				window.location = app;
+				window.location.assign(mobileFallback);
 				window.setTimeout(function() {
-					window.location = mobileFallback;
+					window.location.assign(mobildFallback);
 				}, 25);
 			} else {
 				// window.location = desktopFallback;
