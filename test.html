@@ -27,7 +27,7 @@
 			app = "com.bit.yotepya";
             document.getElementById("useragent").innerHTML = /Android/i.test(navigator.userAgent);
 			if( /Android/i.test(navigator.userAgent) ) {
-				window.location.href = mobileFallback;
+				window.location = mobileFallback;
 				// window.setTimeout(function() {
 				// 	window.location = mobileFallback;
 				// }, 25);
