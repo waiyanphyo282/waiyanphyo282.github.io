@@ -24,6 +24,7 @@
 			var desktopFallback = "http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
 			mobileFallback = "wzcomics://sharelink?target_url=http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
 			app = "com.bit.yotepya";
+            alert(navigator.userAgent);
 			if( /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
 				window.location = app;
 				window.setTimeout(function() {
