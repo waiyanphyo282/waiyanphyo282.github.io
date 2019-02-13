@@ -22,7 +22,7 @@
     <p id="useragent"></p>
     <script type="text/javascript">
 		window.onload = function() {
-			// var desktopFallback = "http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
+			var desktopFallback = "https://play.google.com/store/apps/details?id=com.bit.yotepya",
 			mobileFallback = "wzcomics://sharelink?target_url=http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
 			app = "wzcomics://sharelink";
             document.getElementById("useragent").innerHTML = /Android/i.test(navigator.userAgent);
@@ -32,12 +32,12 @@
 					window.location.assign(mobildFallback);
 				}, 25);
 			} else {
-				// window.location = desktopFallback;
+				window.location = desktopFallback;
 			}
-			function killPopup() {
-				window.removeEventListener('pagehide', killPopup);
-			}
-			window.addEventListener('pagehide', killPopup);
+// 			function killPopup() {
+// 				window.removeEventListener('pagehide', killPopup);
+// 			}
+// 			window.addEventListener('pagehide', killPopup);
 		};
 	</script>
 </body>
