@@ -21,28 +21,17 @@
 <body>
     <p id="useragent"></p><br />
 	<p id="check"></p>
-	<a id="gotoapp" href="wzcomics://sharelink?target_url=http://yotepya.wunzinn.com/sharelink?type=1&item_id=7">Open App</a>
-	<a href="https://mail.google.com">WZ Comics</a>
+	<a id="gotoapp" href="#" hidden></a>
     <script type="text/javascript">
 		window.onload = function() {
-			var desktopFallback = "https://play.google.com/store/apps/details?id=com.bit.yotepya",
-			mobileFallback = "wzcomics://sharelink?target_url=http://yotepya.wunzinn.com/sharelink?type=1&item_id=7",
-			app = "wzcomics://sharelink";
-            document.getElementById("useragent").innerHTML = navigator.userAgent;
+			var desktopFallback = "https://play.google.com/store/apps/details?id=com.bit.yotepya";
+			document.getElementById("gotoapp").href = "wzcomics://sharelink?target_url="+document.location.href;
 			if( /Android/i.test(navigator.userAgent) ) {
-				document.getElementById("check").innerHTML = "Android";
-// 				document.getElementById("gotoapp").click();
-// 				window.setTimeout(function() {
-// 					window.location.assign(mobildFallback);
-// 				}, 25);
+				document.getElementById("gotoapp").click();
 			} else {
 				document.getElementById("check").innerHTML = "Not Android";
-// 				window.location = desktopFallback;
+				window.location = desktopFallback;
 			}
-// 			function killPopup() {
-// 				window.removeEventListener('pagehide', killPopup);
-// 			}
-// 			window.addEventListener('pagehide', killPopup);
 		};
 	</script>
 </body>
