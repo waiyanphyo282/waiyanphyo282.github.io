@@ -19,7 +19,8 @@
     <title>Testing</title>
 </head>
 <body>
-    <p id="useragent"></p>
+    <p id="useragent"></p><br />
+	<p id="check"></p>
     <script type="text/javascript">
 		window.onload = function() {
 			var desktopFallback = "https://play.google.com/store/apps/details?id=com.bit.yotepya",
@@ -27,11 +28,13 @@
 			app = "wzcomics://sharelink";
             document.getElementById("useragent").innerHTML = navigator.userAgent;
 			if( /Android/i.test(navigator.userAgent) ) {
-				window.location.assign(mobileFallback);
-				window.setTimeout(function() {
-					window.location.assign(mobildFallback);
-				}, 25);
+				document.getElementById("check").innerHTML = "Android";
+// 				window.location.assign(mobileFallback);
+// 				window.setTimeout(function() {
+// 					window.location.assign(mobildFallback);
+// 				}, 25);
 			} else {
+				document.getElementById("check").innerHTML = "Not Android";
 // 				window.location = desktopFallback;
 			}
 // 			function killPopup() {
